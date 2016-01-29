@@ -1,7 +1,7 @@
 @echo off
 
 :main
-python lexer.py test.fn
+python fang.py test.fn
 pause
 cls
 goto main
