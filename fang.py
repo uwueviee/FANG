@@ -10,6 +10,8 @@ def lex(filecontents):
     tok = ""
     state = 0
     string = ""
+    exprsn = ""
+    num = ""
     filecontents = list(filecontents)
     for char in filecontents:
         tok += char
@@ -20,8 +22,12 @@ def lex(filecontents):
                 tok = " "
         elif tok == "\n":
             tok = ""
-        elif tok == "displaytext":
+        elif tok == "displaytext" or tok == "DISPLAYTEXT":
             tokens.append("displaytext")
+            tok = ""
+        elif tok == "0" or tok == "1" or tok == "2" or tok == "3" or tok == "4" or tok == "5"  or tok == "6"  or tok == "7"  or tok == "8"  or tok == "9"
+            exprsn += tok
+            print(exprsn)
             tok = ""
         elif tok == "\"":
             if state == 0:
